@@ -16,11 +16,6 @@ import java.util.Scanner;
 
 public class MovieNetworkUtilities{
     private static String BASE_URL="https://api.themoviedb.org/3/movie";
-    private static String POPULAR = "popular";
-    private static String TOP_RATED="now_playing";
-    private static String UP_COMMING="top_rated";
-    private static String NOW_PLAYING="upcoming";
-    private static String SEARCH="SEARCH";
     private static String API="api_key";
     private static String KEY="d428b914188c3afd543156a85a97e919";
     private static String IMAGE_BASE_URL="http://image.tmdb.org/t/p/w185";
@@ -29,7 +24,7 @@ public class MovieNetworkUtilities{
 
     public String buidPosterPath(String s){
         if(s!=null||!s.equals("")){
-            return (IMAGE_BASE_URL+s);
+            return (IMAGE_BASE_URL.concat(s));
         }else
             return null;
     }
@@ -46,9 +41,6 @@ public class MovieNetworkUtilities{
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
-        Log.v(TAG,"Built URL:"+queryUrl);
-
         return queryUrl;
     }
 

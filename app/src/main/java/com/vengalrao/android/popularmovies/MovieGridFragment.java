@@ -27,14 +27,6 @@ import java.util.Objects;
 
 
 public class MovieGridFragment extends Fragment implements LoaderManager.LoaderCallbacks<String>,SharedPreferences.OnSharedPreferenceChangeListener,MoviesAdapter.GridItemClickListener{
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private String cData;
     private RecyclerView mRecyclerView;
@@ -52,16 +44,11 @@ public class MovieGridFragment extends Fragment implements LoaderManager.LoaderC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_movie_list, container, false);
 
         mRecyclerView=(RecyclerView)view.findViewById(R.id.recyclerView_movie_fragment);
@@ -73,7 +60,6 @@ public class MovieGridFragment extends Fragment implements LoaderManager.LoaderC
         mMovieAdapter=new MoviesAdapter(this);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mMovieAdapter);
-        Log.v("Fragment","ent");
         movieNetworkUtilities=new MovieNetworkUtilities();
         movie=new Movie();
 
@@ -85,20 +71,15 @@ public class MovieGridFragment extends Fragment implements LoaderManager.LoaderC
 
     public void loadMovieData(){
         Bundle queryBundle=new Bundle();
-        Log.v("Frag","load");
         SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(getContext());
-        Log.v("Frag",sharedPreferences.getString(getString(R.string.pref_movie_key),getString(R.string.pref_popular_key)));
         queryBundle.putString("sortBy",sharedPreferences.getString(getString(R.string.pref_movie_key),getString(R.string.pref_popular_key)));
         LoaderManager loaderManager=getActivity().getSupportLoaderManager();
         Loader<String> movieLoader=loaderManager.getLoader(LOADER_IDENTIFIER);
         if(movieLoader==null){
-            Log.v("Frag","ccc");
             loaderManager.initLoader(LOADER_IDENTIFIER,queryBundle,this);
         }else{
-            Log.v("Frag","bb");
             loaderManager.restartLoader(LOADER_IDENTIFIER,queryBundle,this);
         }
-        //showMovieData();
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -119,7 +100,6 @@ public class MovieGridFragment extends Fragment implements LoaderManager.LoaderC
             @Override
             public String loadInBackground() {
                 URL url=movieNetworkUtilities.buildUrl(args.getString("sortBy"));
-                Log.v("Frag",url.toString());
                 return movieNetworkUtilities.getResposeFromHttpUrl(url);
             }
 
@@ -177,15 +157,12 @@ public class MovieGridFragment extends Fragment implements LoaderManager.LoaderC
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Bundle queryBundle=new Bundle();
-        Log.v("Frag",sharedPreferences.getString(getString(R.string.pref_movie_key),getString(R.string.pref_popular_key)));
         queryBundle.putString("sortBy",sharedPreferences.getString(getString(R.string.pref_movie_key),getString(R.string.pref_popular_key)));
         LoaderManager loaderManager=getActivity().getSupportLoaderManager();
         Loader<String> movieLoader=loaderManager.getLoader(LOADER_IDENTIFIER);
         if(movieLoader==null){
-            Log.v("Frag","ccc");
             loaderManager.initLoader(LOADER_IDENTIFIER,queryBundle,this);
         }else{
-            Log.v("Frag","bb");
             loaderManager.restartLoader(LOADER_IDENTIFIER,queryBundle,this);
         }
     }

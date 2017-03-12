@@ -22,14 +22,13 @@ public class DetailFragment extends Fragment {
     private TextView overview;
     private TextView rating;
     public DetailFragment() {
-        // Required empty public constructor
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_detail, container, false);
 
         mImageView=(ImageView)view.findViewById(R.id.image_poster_detail_frag);
@@ -46,7 +45,8 @@ public class DetailFragment extends Fragment {
         mTextView.setText(movie.originalName);
         release.setText(movie.releaseDate);
         overview.setText(movie.overview);
-        rating.setText(movie.rating+"/10");
+        String temp=movie.rating.concat("/10");
+        rating.setText(temp);
         return view;
     }
 

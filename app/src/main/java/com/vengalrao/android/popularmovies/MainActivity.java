@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -22,7 +22,7 @@ public class PreferenceSetting extends PreferenceFragmentCompat implements Share
         int count=preferenceScreen.getPreferenceCount();
         for(int i=0;i<count;i++){
             Preference preference =preferenceScreen.getPreference(i);
-            String value=sharedPreferences.getString(preference.getKey(),"");
+            String value=sharedPreferences.getString(preference.getKey(),"Popular");
             setPreferenceSummary(preference,value);
         }
     }
@@ -41,7 +41,7 @@ public class PreferenceSetting extends PreferenceFragmentCompat implements Share
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference preference=findPreference(key);
         if(preference!=null){
-            String value=sharedPreferences.getString(preference.getKey(),"");
+            String value=sharedPreferences.getString(preference.getKey(),"Popular");
             setPreferenceSummary(preference,value);
         }
     }
