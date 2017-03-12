@@ -3,6 +3,7 @@ package com.vengalrao.android.popularmovies;
 import java.io.Serializable;
 
 /**
+ *
  * Created by vengalrao on 12-03-2017.
  */
 
