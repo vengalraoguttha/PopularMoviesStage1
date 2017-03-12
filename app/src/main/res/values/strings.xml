@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">PopularMovies</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_message">Unable to feach data.\nPlease try again!!</string>
+    <string name="setting">Settings</string>
+    <string name="pref_popular">Popular</string>
+    <string name="pref_now_playing">Now Playing</string>
+    <string name="pref_top_rated">Top Rated</string>
+    <string name="pref_upcoming">upcoming</string>
+
+    <string name="pref_popular_key">popular</string>
+    <string name="pref_now_playing_key">now_playing</string>
+    <string name="pref_top_rated_key">top_rated</string>
+    <string name="pref_upcoming_key">upcoming</string>
+    <string name="pref_movie">Sort By</string>
+    <string name="pref_movie_key">sort_by_key</string>
+
+</resources>
