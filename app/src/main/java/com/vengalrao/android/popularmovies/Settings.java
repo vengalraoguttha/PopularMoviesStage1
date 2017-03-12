@@ -12,6 +12,7 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        setTheme(R.style.PreferenceTheme);
 
         ActionBar actionBar =this.getSupportActionBar();
         if(actionBar!=null){

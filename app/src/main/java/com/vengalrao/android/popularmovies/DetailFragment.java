@@ -20,6 +20,7 @@ public class DetailFragment extends Fragment {
     private TextView mTextView;
     private TextView release;
     private TextView overview;
+    private TextView rating;
     public DetailFragment() {
         // Required empty public constructor
     }
@@ -36,6 +37,7 @@ public class DetailFragment extends Fragment {
         mTextView=(TextView)view.findViewById(R.id.original_name);
         release=(TextView)view.findViewById(R.id.release);
         overview=(TextView)view.findViewById(R.id.overview);
+        rating=(TextView)view.findViewById(R.id.rating_details);
 
         Intent intent=getActivity().getIntent();
         Movie movie=(Movie)intent.getSerializableExtra("Movie");
@@ -44,6 +46,7 @@ public class DetailFragment extends Fragment {
         mTextView.setText(movie.originalName);
         release.setText(movie.releaseDate);
         overview.setText(movie.overview);
+        rating.setText(movie.rating+"/10");
         return view;
     }
 

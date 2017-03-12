@@ -23,7 +23,7 @@ public class MovieNetworkUtilities{
     private static String SEARCH="SEARCH";
     private static String API="api_key";
     private static String KEY="d428b914188c3afd543156a85a97e919";
-    private static String IMAGE_BASE_URL="http://image.tmdb.org/t/p/w500";
+    private static String IMAGE_BASE_URL="http://image.tmdb.org/t/p/w185";
 
     private static String TAG="NetworkUtil";
 
